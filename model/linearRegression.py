@@ -47,6 +47,8 @@ class LinearRegression:
             )
 
             self.theta -= self.learning_rate * gradient
+            if np.linalg.norm(gradient) < 1e-7:
+                break
 
         return self
 
@@ -63,7 +65,7 @@ class LinearRegression:
         with open(filename, 'w') as f:
 
             f.write('theta00,theta01,mean,std\n')
-            f.write(f'{self.theta[0]}, {self.theta[1]}, {mean}, {std}')
+            f.write(f'{self.theta[0]},{self.theta[1]},{mean},{std}')
             f.write('\n')
         return self
 

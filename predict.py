@@ -1,7 +1,5 @@
 import pandas as pd
 
-
-
 try:
     model = pd.read_csv('./csv/model.csv')
     theta0 = model["theta00"].iloc[0]
@@ -32,4 +30,4 @@ while True:
     else:
         price = 0
 
-    print(f"The price estimated is: {price}")
+    print(f"The price estimated is: {price:.2f}")

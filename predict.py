@@ -24,9 +24,11 @@ while True:
         continue
 
     # Predict
-    if model_loaded:
+    if model_loaded and mileage >= 0:
         mileage_scaled = (mileage - mean) / std
         price = theta0 + (theta1 * mileage_scaled)
+        if price < 0:
+            price = 0
     else:
         price = 0
 

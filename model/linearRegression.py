@@ -14,20 +14,9 @@ class LinearRegression:
 
         predictions = X @ theta
         error = predictions - y
-
         gradient = (X.T @ error) / m
-
         return gradient
 
-    def calculate_loss(self, theta, X, y):
-        m = y.size
-
-        predictions = X @ theta
-        error = predictions - y
-
-        loss = (1 / (2 * m)) * np.sum(error ** 2)
-
-        return loss
 
     def fit(self, X, y):
 
@@ -47,8 +36,6 @@ class LinearRegression:
             )
 
             self.theta -= self.learning_rate * gradient
-            if np.linalg.norm(gradient) < 1e-7:
-                break
 
         return self
 
